@@ -1,0 +1,10 @@
+1、run haptic_algorithm
+cd algoritithm/haptic_algorithm
+python finger_core_alg_debug.py
+
+2、run yolox
+cd algoritithm/vision_algorithm 
+python demo.py webcam -n yolox_s -c ./checkpoints/yolox_voc_s/latest_ckpt.pth --camid 0 --conf 0.8 --nms 0.45 --tsize 640 -f ./exps/example/yolox_voc/yolox_voc_s.py
+
+3、run realtime
+python util/run_realtime.py webcam -n yolox_s -c algoritithm/vision_algorithm/checkpoints/yolox_voc_s/latest_ckpt.pth --conf 0.8 --nms 0.1 --tsize 640 -f algoritithm/vision_algorithm/exps/example/yolox_voc/yolox_voc_s.py --calib algoritithm/haptic_algorithm/calibration/220715-005
